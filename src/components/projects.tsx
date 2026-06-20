@@ -1,4 +1,5 @@
 import ProjectCard from "./project-card";
+import { projects } from "@/data/projects";
 
 export default function Projects() {
   return (
@@ -11,20 +12,13 @@ export default function Projects() {
       </h2>
 
       <div className="grid md:grid-cols-2 gap-8">
-        <ProjectCard
-          title="Portfolio Website"
-          description="Personal portfolio with AI-powered features."
-        />
-
-        <ProjectCard
-          title="Movie Recommender"
-          description="Recommendation system for discovering movies."
-        />
-
-        <ProjectCard
-          title="Expense Tracker"
-          description="Track expenses and manage budgets."
-        />
+        {projects.map((project) => (
+            <ProjectCard
+                key={project.title}
+                title={project.title}
+                description={project.description}
+            />
+        ))}
       </div>
     </section>
   );
