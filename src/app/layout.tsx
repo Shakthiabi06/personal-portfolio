@@ -1,4 +1,15 @@
 import "./globals.css";
+import { Inter, Playfair_Display } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+});
 
 export const metadata = {
   title: "Shakthi Portfolio",
@@ -12,7 +23,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body
+        className={`${inter.variable} ${playfair.variable}`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
